@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased selection:bg-emerald-500 selection:text-white;
+  }
+}
+
+/* Custom Print Rules for Browser Save-As-PDF */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  header, aside, nav, button, .no-print {
+    display: none !important;
+  }
+
+  #printable-report {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
