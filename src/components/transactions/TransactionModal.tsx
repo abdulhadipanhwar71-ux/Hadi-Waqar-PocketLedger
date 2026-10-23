@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Modal } from '../common/Modal';
+import { DatePickerInput } from '../common/DatePickerInput';
 import { useApp } from '../../context/AppContext';
 import { Repository } from '../../db/repository';
 import { Transaction, TransactionType } from '../../types';
@@ -223,18 +224,12 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
         </div>
 
         {/* Date */}
-        <div>
-          <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-            Date *
-          </label>
-          <input
-            type="date"
-            required
-            value={date}
-            onChange={e => setDate(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 focus:border-emerald-500 focus:outline-none dark:border-navy-700 dark:bg-navy-950 dark:text-white"
-          />
-        </div>
+        <DatePickerInput
+          value={date}
+          onChange={setDate}
+          label="Date *"
+          required={true}
+        />
 
         {/* Accounts */}
         {type === 'transfer' ? (

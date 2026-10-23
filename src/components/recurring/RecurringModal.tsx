@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Modal } from '../common/Modal';
+import { DatePickerInput } from '../common/DatePickerInput';
 import { useApp } from '../../context/AppContext';
 import { Repository } from '../../db/repository';
 import { RecurringTransaction, RecurringFrequency, TransactionType } from '../../types';
@@ -264,32 +265,21 @@ export const RecurringModal: React.FC<RecurringModalProps> = ({
 
         {/* Start Date & End Date */}
         <div className="grid grid-cols-2 gap-3">
-          <div>
-            <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-              Start Date *
-            </label>
-            <input
-              type="date"
-              required
-              value={startDate}
-              onChange={e => {
-                setStartDate(e.target.value);
-                if (!recurringToEdit) setNextDueDate(e.target.value);
-              }}
-              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-800 focus:border-emerald-500 focus:outline-none dark:border-navy-700 dark:bg-navy-950 dark:text-white"
-            />
-          </div>
-          <div>
-            <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-              End Date (Optional)
-            </label>
-            <input
-              type="date"
-              value={endDate}
-              onChange={e => setEndDate(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-800 focus:border-emerald-500 focus:outline-none dark:border-navy-700 dark:bg-navy-950 dark:text-white"
-            />
-          </div>
+          <DatePickerInput
+            value={startDate}
+            onChange={val => {
+              setStartDate(val);
+              if (!recurringToEdit) setNextDueDate(val);
+            }}
+            label="Start Date *"
+            required={true}
+          />
+          <DatePickerInput
+            value={endDate}
+            onChange={setEndDate}
+            label="End Date (Optional)"
+            required={false}
+          />
         </div>
 
         {/* Accounts & Category */}
