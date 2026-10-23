@@ -40,25 +40,33 @@ export const PWAInstallPrompt: React.FC = () => {
   return (
     <>
       {showBanner && (
-        <div className="bg-gradient-to-r from-navy-900 via-navy-800 to-emerald-950 text-white px-4 py-2.5 shadow-md flex items-center justify-between border-b border-emerald-500/30">
+        <div className="bg-gradient-to-r from-navy-900 via-navy-800 to-emerald-950 text-white px-4 py-2.5 shadow-md flex items-center justify-between border-b border-emerald-500/30 flex-wrap gap-2">
           <div className="flex items-center space-x-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
               <Download className="h-4 w-4" />
             </div>
             <div>
-              <p className="text-xs font-semibold">Install PocketLedger as an App</p>
+              <p className="text-xs font-semibold">PocketLedger Android & Web App</p>
               <p className="text-[11px] text-slate-300">
-                Run offline anytime with native standalone experience on Windows, Android & iOS
+                Download direct APK for Android or install as offline PWA
               </p>
             </div>
           </div>
 
           <div className="flex items-center space-x-2">
+            <a
+              href="/PocketLedger.apk"
+              download="PocketLedger.apk"
+              className="rounded-lg bg-emerald-500 px-3 py-1 text-xs font-bold text-navy-950 hover:bg-emerald-400 transition-colors flex items-center space-x-1 shadow-sm"
+            >
+              <Download className="h-3.5 w-3.5" />
+              <span>Download APK</span>
+            </a>
             <button
               onClick={handleInstallClick}
-              className="rounded-lg bg-emerald-500 px-3 py-1 text-xs font-bold text-navy-950 hover:bg-emerald-400 transition-colors"
+              className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-medium text-white hover:bg-white/20 transition-colors"
             >
-              Install
+              PWA Guide
             </button>
             <button
               onClick={handleDismiss}
@@ -89,11 +97,19 @@ export const PWAInstallPrompt: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 dark:bg-navy-800/60">
-                <Smartphone className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-slate-900 dark:text-white mb-0.5">Android (Chrome):</h4>
-                  <p>Tap the 3 dots menu (⋮) in Chrome &gt; select <strong>"Add to Home screen"</strong> or <strong>"Install app"</strong>.</p>
+              <div className="flex items-start space-x-3 p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-500/30">
+                <Smartphone className="h-5 w-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                <div className="w-full">
+                  <h4 className="font-semibold text-slate-900 dark:text-white mb-1">Android App (Direct APK):</h4>
+                  <p className="mb-2 text-slate-600 dark:text-slate-300">Download the Android APK file directly to your phone:</p>
+                  <a
+                    href="/PocketLedger.apk"
+                    download="PocketLedger.apk"
+                    className="inline-flex items-center space-x-1.5 rounded-lg bg-emerald-500 px-3 py-1.5 text-xs font-bold text-navy-950 hover:bg-emerald-400 transition-colors shadow-sm"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                    <span>Download PocketLedger APK (4.2 MB)</span>
+                  </a>
                 </div>
               </div>
 
