@@ -3,9 +3,7 @@ import { Download, X, Smartphone, Monitor } from 'lucide-react';
 
 export const PWAInstallPrompt: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [showBanner, setShowBanner] = useState<boolean>(() => {
-    return localStorage.getItem('pocketledger_pwa_dismissed') !== 'true';
-  });
+  const [showBanner, setShowBanner] = useState<boolean>(true);
   const [showGuideModal, setShowGuideModal] = useState<boolean>(false);
 
   useEffect(() => {

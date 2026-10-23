@@ -23,6 +23,7 @@ import {
   AlertTriangle,
   ArrowUpRight,
   ArrowDownRight,
+  Download,
 } from 'lucide-react';
 import { TransactionType } from '../../types';
 
@@ -75,6 +76,32 @@ export const DashboardView: React.FC = () => {
 
   return (
     <div className="space-y-6 pb-20 md:pb-6">
+      {/* Quick Download Android APK Card */}
+      <div className="rounded-2xl bg-gradient-to-r from-navy-900 via-navy-800 to-emerald-950 p-4 text-white shadow-lg border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="flex items-center space-x-3">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+            <Download className="h-6 w-6" />
+          </div>
+          <div>
+            <h3 className="font-bold text-sm text-white flex items-center gap-2">
+              <span>Install PocketLedger App on Mobile</span>
+              <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] text-emerald-300 font-medium">New APK</span>
+            </h3>
+            <p className="text-xs text-slate-300 mt-0.5">
+              Click below to download and install the native Android APK directly on your phone.
+            </p>
+          </div>
+        </div>
+        <a
+          href="/PocketLedger.apk"
+          download="PocketLedger.apk"
+          className="w-full sm:w-auto flex items-center justify-center space-x-2 rounded-xl bg-emerald-500 px-5 py-2.5 text-xs font-bold text-navy-950 hover:bg-emerald-400 shadow-md transition-all active:scale-95"
+        >
+          <Download className="h-4 w-4" />
+          <span>Download & Install APK (4.2 MB)</span>
+        </a>
+      </div>
+
       {/* Top Header & Filters */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>

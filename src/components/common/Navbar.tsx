@@ -9,6 +9,7 @@ import {
   Moon,
   Sun,
   ShieldCheck,
+  Download,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -89,10 +90,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onQuickAction }) => {
           </button>
         )}
 
+        {/* Install / Download APK Button */}
+        <a
+          href="/PocketLedger.apk"
+          download="PocketLedger.apk"
+          className="flex items-center space-x-1.5 rounded-xl bg-emerald-500 px-3 py-2 text-xs font-bold text-navy-950 shadow-sm hover:bg-emerald-400 active:scale-95 transition-all"
+          title="Download & Install Android APK"
+        >
+          <Download className="h-4 w-4" />
+          <span>Install App</span>
+        </a>
+
         {/* Quick Add Button */}
         <button
           onClick={onQuickAction}
-          className="flex items-center space-x-1.5 rounded-xl bg-emerald-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 active:scale-95 transition-all"
+          className="flex items-center space-x-1.5 rounded-xl bg-navy-900 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-navy-800 dark:bg-emerald-600 dark:hover:bg-emerald-500 active:scale-95 transition-all"
         >
           <PlusCircle className="h-4 w-4" />
           <span className="hidden sm:inline">Add Transaction</span>
