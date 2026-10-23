@@ -3,18 +3,16 @@ import { Download, X, Smartphone, Monitor } from 'lucide-react';
 
 export const PWAInstallPrompt: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [showBanner, setShowBanner] = useState<boolean>(false);
+  const [showBanner, setShowBanner] = useState<boolean>(() => {
+    return localStorage.getItem('pocketledger_pwa_dismissed') !== 'true';
+  });
   const [showGuideModal, setShowGuideModal] = useState<boolean>(false);
 
   useEffect(() => {
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      // Check if user dismissed recently
-      const dismissed = localStorage.getItem('pocketledger_pwa_dismissed');
-      if (!dismissed) {
-        setShowBanner(true);
-      }
+      setShowBanner(true);
     };
 
     window.addEventListener('beforeinstallprompt', handler);
