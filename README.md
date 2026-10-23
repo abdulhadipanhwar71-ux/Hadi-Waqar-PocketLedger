@@ -1,5 +1,10 @@
 # PocketLedger — Professional Offline-First Personal Finance Manager
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fabdulhadipanhwar71-ux%2FHadi-Waqar-PocketLedger)
+
+Created by **Hadi Waqar / Abdul Hadi** • [GitHub Repository](https://github.com/abdulhadipanhwar71-ux/Hadi-Waqar-PocketLedger)
+
+
 PocketLedger is a privacy-first, commercial-grade personal finance application designed for Windows desktops, Android, iOS, and tablets. It stores 100% of your financial records directly on your local device using **IndexedDB**, guaranteeing complete offline autonomy with **zero telemetry, no external databases, no cloud subscriptions, and zero advertisements**.
 
 ---
